@@ -5,7 +5,7 @@ from .. import config, include, use, import_scad
 if config.use_implicit_builtins:
     raise Exception("ExpSolid: unfortunately ImplicitCAD can't handle bosl2...")
 
-bosl2_dir = Path(__file__).absolute().parent.parent / "libs/BOSL2"
+bosl2_dir = Path(__file__).absolute().parent.parent / "libs/BOSL2_9c92e3c"
 
 #include bosl2/std.scad
 include(bosl2_dir/"std.scad")
