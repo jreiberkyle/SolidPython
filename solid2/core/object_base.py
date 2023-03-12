@@ -117,6 +117,33 @@ class OpenSCADConstant:
     def __repr__(self):
         return self._render()
 
+    def __str__(self):
+        return self.name
+
+    def __add__(self, other):
+        if isinstance(other, OpenSCADConstant):
+            return OpenSCADConstant(self.name + "+" + other.name)
+        else:
+            return self + OpenSCADConstant(str(other))
+
+    def __sub__(self, other):
+        if isinstance(other, OpenSCADConstant):
+            return OpenSCADConstant(self.name + "-" + other.name)
+        else:
+            return self - OpenSCADConstant(str(other))
+
+    def __truediv__(self, other):
+        if isinstance(other, OpenSCADConstant):
+            return OpenSCADConstant(self.name + "/" + other.name)
+        else:
+            return self / OpenSCADConstant(str(other))
+
+    def __mult__(self, other):
+        if isinstance(other, OpenSCADConstant):
+            return OpenSCADConstant(self.name + "*" + other.name)
+        else:
+            return self * OpenSCADConstant(str(other))
+
     def _render(self):
         return dedent(self.name)
 
